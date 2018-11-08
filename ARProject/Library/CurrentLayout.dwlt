@@ -40,8 +40,8 @@ MonoBehaviour:
     y: 0
     width: 326
     height: 446
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 12008, y: 14042}
   vertical: 0
-  controlID: 60
+  controlID: 97
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -88,8 +88,8 @@ MonoBehaviour:
     y: 0
     width: 202
     height: 446
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 12008, y: 14042}
   vertical: 1
-  controlID: 61
+  controlID: 98
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 221}
   m_MaxSize: {x: 12008, y: 4021}
   vertical: 0
-  controlID: 62
+  controlID: 99
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,8 +252,8 @@ MonoBehaviour:
     y: 0
     width: 912
     height: 446
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -559,14 +559,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/shivnesh/Documents/Augmented_Reality_Game/ARProject
+  m_LastProjectPath: /Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 1a2c0000
-    m_LastClickedID: 11290
-    m_ExpandedIDs: 000000001a2c0000c22c0000ca2d0000202e0000082f00009c31000048320000ba3200005e330000443400006a340000ca3600003a380000a2390000a83900004a3b0000a23b00008c3c00001e3e0000663f0000983f000000ca9a3b
+    m_SelectedIDs: 8c2f0000
+    m_LastClickedID: 12172
+    m_ExpandedIDs: 000000008c2f0000343000003c310000923100007a3200000e350000ba3500002c360000d0360000b6370000dc3700003c3a0000ac3b0000143d00001a3d0000bc3e0000143f0000fe3f000090410000d84200000a43000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -594,7 +594,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001a2c0000c22c0000ca2d0000202e0000082f00009c31000048320000ba3200005e330000443400006a340000ca3600003a380000a2390000a83900004a3b0000a23b00008c3c00001e3e0000663f0000983f0000
+    m_ExpandedIDs: 000000008c2f0000343000003c310000923100007a3200000e350000ba3500002c360000d0360000b6370000dc3700003c3a0000ac3b0000143d00001a3d0000bc3e0000143f0000fe3f000090410000d84200000a430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -676,9 +676,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: aa010000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: e6fbffff00000000
+    m_ExpandedIDs: e6fbffff00000000da440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

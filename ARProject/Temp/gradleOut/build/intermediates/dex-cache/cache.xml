@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/shivnesh/.gradle/caches/transforms-1/files-1.1/arcore_client.aar/23e153dc5867b58578d0dad402e278ad/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="27.0.3"
+        sha1="b0f1fe293164cba294128e6b609141fd62f91bff">
+        <dex dex="/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/libs/unity-classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="27.0.3"
+        sha1="968cd77fd8edec15e2ceeb5949bffd9a98879639">
+        <dex dex="/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shivnesh/.gradle/caches/transforms-1/files-1.1/unitygar.aar/f5ec1394d637ca3c088239aaea8773cb/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="27.0.3"
+        sha1="3b08b853fe85764387602ff10decaf2b449f4ea2">
+        <dex dex="/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shivnesh/.gradle/caches/transforms-1/files-1.1/unitygar.aar/f5ec1394d637ca3c088239aaea8773cb/jars/libs/tango_java_lib.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="27.0.3"
+        sha1="dac29b41332a170a55310a99e3e2f3058e3ac419">
+        <dex dex="/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/shivnesh/.gradle/caches/transforms-1/files-1.1/unityandroidpermissions.aar/235cf51f15f37ab6129c3d725f16bb53/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="24"
+        optimize="true"
+        revision="27.0.3"
+        sha1="be35cfb98dbf80214072c4eb41da843fb0d4400d">
+        <dex dex="/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/build/intermediates/transforms/preDex/release/5.jar" />
+    </item>
+
+</items>

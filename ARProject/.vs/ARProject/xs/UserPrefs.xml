@@ -7,7 +7,7 @@
       <File FileName="Assets/GunScript.cs" Line="63" Column="19" />
       <File FileName="Assets/colliderScript.cs" Line="18" Column="15" />
       <File FileName="Assets/Yurowm/Demo/Scripts/PlayerController.cs" Line="21" Column="15" />
-      <File FileName="Assets/GoogleARCore/Examples/Common/Scripts/DetectedPlaneGenerator.cs" Line="70" Column="9" />
+      <File FileName="Assets/GoogleARCore/Examples/Common/Scripts/DetectedPlaneGenerator.cs" Line="70" Column="1" />
       <File FileName="Assets/Yurowm/Demo/Scripts/Actions.cs" Line="43" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>

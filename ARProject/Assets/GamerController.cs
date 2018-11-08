@@ -30,6 +30,11 @@ public class GamerController : MonoBehaviour {
 
     public GameObject char1health;
     public GameObject char2health;
+    public GameObject charEnergy;
+
+    public Canvas popupCanvas;
+
+    private float charEnergyValue;
 
     private List<string> WeaponList = new List<string> {"Empty","One Pistol","Two Pistols"};
     private Dictionary<string,List<int>> allowedWeaponIndex = new Dictionary<string, List<int>> { { "SciFiEngineer_1",new List<int>{0}} , { "SciFiEngineer_2", new List<int> { 0 } } };
@@ -43,15 +48,22 @@ public class GamerController : MonoBehaviour {
     {
         characters = new List<GameObject>();
         controllers = new List<PlayerController>();
-
+        charEnergyValue = 100f;
         characterHealthIndex = new Dictionary<string, GameObject>();
         characterHealthIndex.Add("SciFiEngineer_1",char1health);
         characterHealthIndex.Add("SciFiEngineer_2",char2health);
+
+        popupCanvas.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(CrossPlatformInputManager.GetButton("OK")){
+            popupCanvas.enabled = false;
+        }
+
         // pass the input to the dude!
         if (controllers != null && controllers.Capacity > 1 && characters.Capacity > 1)
         {
@@ -63,6 +75,7 @@ public class GamerController : MonoBehaviour {
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             if (h !=0 || v != 0)
             {
+                UpdateEnergy(1f);
                 currentActions.Walk();
                 Vector3 target = new Vector3(h * speed * Time.deltaTime , 0 , v * speed * Time.deltaTime);
                 Vector3 pos = currentCharacter.transform.position + target;
@@ -82,14 +95,41 @@ public class GamerController : MonoBehaviour {
             }
 
             // Get all thhe components of the switched charater and populate the Global Variables
-            if(CrossPlatformInputManager.GetButton("Switch"))
+            /*if(CrossPlatformInputManager.GetButton("Switch"))
             {
                 currentPlayer = (currentPlayer + 1) % 2;
                 currentCharacter = characters[currentPlayer];
                 currentActions = currentCharacter.GetComponent<Actions>();
                 currentPlayerController = currentCharacter.GetComponent<PlayerController>();
+
+                switchPlayer();
+            }*/
+        }
+    }
+
+    public void switchPlayer(){
+        currentActions.Stay();
+        currentPlayer = (currentPlayer + 1) % 2;
+        currentCharacter = characters[currentPlayer];
+        currentActions = currentCharacter.GetComponent<Actions>();
+        currentPlayerController = currentCharacter.GetComponent<PlayerController>();
+        popupCanvas.enabled = true;
+    }
+
+    public void UpdateEnergy(float value){
+        float energy = float.Parse(charEnergy.GetComponent<UnityEngine.UI.Text>().text);
+        charEnergyValue -= value;
+
+        if(charEnergyValue <= 0f){
+            charEnergyValue = 100f;
+            energy = 100f;
+            switchPlayer();
+        }else{
+            if(energy - charEnergyValue>1){
+                energy = Mathf.Ceil(charEnergyValue);
             }
         }
+        charEnergy.GetComponent<UnityEngine.UI.Text>().text = (Mathf.Ceil(energy)).ToString();
     }
 
     public int GetWeaponIndex(){
@@ -136,7 +176,7 @@ public class GamerController : MonoBehaviour {
             spos.x += 1.0f;
             spos.z += 0.5f;
             GameObject character2 = Instantiate(char2Prefab, spos, Quaternion.identity, transform);
-            //desertMap.transform.Find("SciFiEngineer").gameObject;
+           
             Vector3 newPos = new Vector3(firstPersonCamera.transform.position.x, spos.y, firstPersonCamera.transform.position.z);
             controllers.Add(character.GetComponent<PlayerController>());
             controllers.Add(character2.GetComponent<PlayerController>());
