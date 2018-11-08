@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/shivnesh/Documents/AugmentedReality/ARProject/ARProjectMain.apk
+D:/UnityEngineProjects/AugmentedReality/ARProject/new_terrain.apk
 SceneListBegin?
 Assets/Scenes/ARScene.unity
 SceneListEnd?
