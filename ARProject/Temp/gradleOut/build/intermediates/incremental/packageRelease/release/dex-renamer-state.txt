@@ -1,4 +1,4 @@
-#Wed Nov 07 19:47:35 PST 2018
+#Wed Nov 07 22:06:15 PST 2018
 base.0=/Users/shivnesh/Documents/Augmented_Reality_Game/AugmentedReality/ARProject/Temp/gradleOut/build/intermediates/transforms/dex/release/0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -64,46 +64,39 @@ public class GamerController : MonoBehaviour {
             popupCanvas.enabled = false;
         }
 
-        // pass the input to the dude!
-        if (controllers != null && controllers.Capacity > 1 && characters.Capacity > 1)
+        if(!popupCanvas.enabled)
         {
-            currentCharacter = characters[currentPlayer];
-            currentActions = currentCharacter.GetComponent<Actions>();
-            currentPlayerController = currentCharacter.GetComponent<PlayerController>();
 
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
-            if (h !=0 || v != 0)
+            // pass the input to the dude!
+            if (controllers != null && controllers.Capacity > 1 && characters.Capacity > 1)
             {
-                UpdateEnergy(1f);
-                currentActions.Walk();
-                Vector3 target = new Vector3(h * speed * Time.deltaTime , 0 , v * speed * Time.deltaTime);
-                Vector3 pos = currentCharacter.transform.position + target;
-                currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position , pos, speed);
-                var rotation = Quaternion.LookRotation(target);
-                currentCharacter.transform.rotation = Quaternion.Slerp(currentCharacter.transform.rotation, rotation, Time.deltaTime * 30f);
-            }
-            else if (CrossPlatformInputManager.GetButton("SwitchWeapon"))
-            {
-                //Debug.Log("Switch Weapon was pressed");
-                currentPlayerController.SetArsenal(WeaponList[GetWeaponIndex()]);
-                currentActions.Aiming();
-            }
-            else
-            {
-                currentActions.Stay();
-            }
-
-            // Get all thhe components of the switched charater and populate the Global Variables
-            /*if(CrossPlatformInputManager.GetButton("Switch"))
-            {
-                currentPlayer = (currentPlayer + 1) % 2;
                 currentCharacter = characters[currentPlayer];
                 currentActions = currentCharacter.GetComponent<Actions>();
                 currentPlayerController = currentCharacter.GetComponent<PlayerController>();
 
-                switchPlayer();
-            }*/
+                float h = CrossPlatformInputManager.GetAxis("Horizontal");
+                float v = CrossPlatformInputManager.GetAxis("Vertical");
+                if (h != 0 || v != 0)
+                {
+                    UpdateEnergy(0.05f);
+                    currentActions.Walk();
+                    Vector3 target = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
+                    Vector3 pos = currentCharacter.transform.position + target;
+                    currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position, pos, speed);
+                    var rotation = Quaternion.LookRotation(target);
+                    currentCharacter.transform.rotation = Quaternion.Slerp(currentCharacter.transform.rotation, rotation, Time.deltaTime * 30f);
+                }
+                else if (CrossPlatformInputManager.GetButton("SwitchWeapon"))
+                {
+                    //Debug.Log("Switch Weapon was pressed");
+                    currentPlayerController.SetArsenal(WeaponList[GetWeaponIndex()]);
+                    currentActions.Aiming();
+                }
+                else
+                {
+                    currentActions.Stay();
+                }
+            }
         }
     }
 
@@ -192,9 +185,6 @@ public class GamerController : MonoBehaviour {
             desertMap.transform.parent = envAnchor.transform;
             character.transform.parent = envAnchor.transform;
             character2.transform.parent = envAnchor.transform;
-
-
         }
-       
     }
 }

@@ -762,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.78, y: 0.01}
   m_AnchorMax: {x: 0.99, y: 0.15}
-  m_AnchoredPosition: {x: -702, y: 246}
+  m_AnchoredPosition: {x: -745, y: 246}
   m_SizeDelta: {x: -141.39996, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881283038
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 648851767}
-  envPrefab: {fileID: 1069486993536564, guid: 5715f2ecdc33949f7bafa321c88e1128, type: 2}
+  envPrefab: {fileID: 1735558021079312, guid: ca472a68bdeb244938cd3c66da4a3c4e, type: 2}
   char1Prefab: {fileID: 100066, guid: d11271f917495424a810bb5554cb993b, type: 2}
   char2Prefab: {fileID: 100066, guid: d11271f917495424a810bb5554cb993b, type: 2}
   char1health: {fileID: 1922419091}

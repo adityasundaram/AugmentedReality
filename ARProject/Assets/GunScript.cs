@@ -75,6 +75,8 @@ public class GunScript : MonoBehaviour {
 
         GamerController mainGameController = GameObject.FindWithTag("GameController").GetComponent<GamerController>();
 
+        mainGameController.UpdateEnergy(0.5f);
+
         // This condition is true only when we have hit something with our ray
         if (Physics.Raycast(this.gameObject.transform.position, this.gameObject.transform.forward, out hit, Range))
         {

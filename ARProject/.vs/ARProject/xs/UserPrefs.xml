@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{6F3B1A3C-2B4E-0C02-BD08-AEF49C45C39A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GamerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GunScript.cs">
     <Files>
-      <File FileName="Assets/SceneController.cs" Line="65" Column="55" />
-      <File FileName="Assets/GamerController.cs" Line="25" Column="34" />
-      <File FileName="Assets/GunScript.cs" Line="63" Column="19" />
+      <File FileName="Assets/GunScript.cs" Line="78" Column="47" />
       <File FileName="Assets/colliderScript.cs" Line="18" Column="15" />
-      <File FileName="Assets/Yurowm/Demo/Scripts/PlayerController.cs" Line="21" Column="15" />
+      <File FileName="Assets/Yurowm/Demo/Scripts/PlayerController.cs" Line="24" Column="51" />
       <File FileName="Assets/GoogleARCore/Examples/Common/Scripts/DetectedPlaneGenerator.cs" Line="70" Column="1" />
-      <File FileName="Assets/Yurowm/Demo/Scripts/Actions.cs" Line="43" Column="26" />
+      <File FileName="Assets/Yurowm/Demo/Scripts/Actions.cs" Line="54" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
