@@ -63,9 +63,7 @@ namespace GoogleARCore.Examples.Common
                 planeObject.GetComponent<DetectedPlaneVisualizer>().Initialize(m_NewPlanes[i]);
                 planeObject.GetComponent<DetectedPlaneVisualizer>().enabled = drawPlanes;
                 planeObject.GetComponent<Renderer>().enabled = drawPlanes;
-
             }
-           
         }
 
         public void Start()

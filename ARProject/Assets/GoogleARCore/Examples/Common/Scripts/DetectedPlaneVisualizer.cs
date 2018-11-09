@@ -62,7 +62,7 @@ namespace GoogleARCore.Examples.Common
         private List<int> m_MeshIndices = new List<int>();
 
         private Mesh m_Mesh;
-
+        private bool viewMesh;
         private MeshRenderer m_MeshRenderer;
 
         /// <summary>
@@ -77,6 +77,12 @@ namespace GoogleARCore.Examples.Common
         /// <summary>
         /// The Unity Update() method.
         /// </summary>
+
+        public void disableMesh()
+        {
+            viewMesh = false;
+        }
+
         public void Update()
         {
             if (m_DetectedPlane == null)
@@ -94,7 +100,7 @@ namespace GoogleARCore.Examples.Common
                  return;
             }
 
-            m_MeshRenderer.enabled = true;
+            m_MeshRenderer.enabled = viewMesh;
 
             _UpdateMeshIfNeeded();
         }
@@ -108,7 +114,7 @@ namespace GoogleARCore.Examples.Common
             m_DetectedPlane = plane;
             m_MeshRenderer.material.SetColor("_GridColor", k_PlaneColors[s_PlaneCount++ % k_PlaneColors.Length]);
             m_MeshRenderer.material.SetFloat("_UvRotation", Random.Range(0.0f, 360.0f));
-
+          //  m_MeshRenderer.enabled = viewMesh;
             Update();
         }
 
