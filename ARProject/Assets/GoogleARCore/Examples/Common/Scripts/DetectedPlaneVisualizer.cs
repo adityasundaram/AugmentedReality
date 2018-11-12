@@ -100,7 +100,7 @@ namespace GoogleARCore.Examples.Common
                  return;
             }
 
-            m_MeshRenderer.enabled = viewMesh;
+            m_MeshRenderer.enabled = true;
 
             _UpdateMeshIfNeeded();
         }

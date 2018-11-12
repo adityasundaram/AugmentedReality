@@ -23,14 +23,14 @@ public class SceneController : MonoBehaviour {
             {
                 SetSelectedPlane(hit.Trackable as DetectedPlane, hit.Trackable.CreateAnchor(hit.Pose) as Anchor);
                 var generator = this.GetComponent<DetectedPlaneGenerator>();
-                generator.disablePlane();
+                //generator.disablePlane();
                 //stopShowingPlanes();
             }
     }
 
     void stopShowingPlanes()
     {
-        foreach (GameObject plane in GameObject.FindGameObjectsWithTag("plane"))
+        foreach (GameObject plane in GameObject.FindGameObjectsWithTag("Plane"))
         {
             Renderer r = plane.GetComponent<Renderer>();
             DetectedPlaneVisualizer t = plane.GetComponent<DetectedPlaneVisualizer>();
