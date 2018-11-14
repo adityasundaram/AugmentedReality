@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour {
 
     public Camera firstPersonCamera;
     public GamerController characterController;
-
+    private bool loaded;
     void ProcessTouches()
     {
             Touch touch;
@@ -15,7 +15,8 @@ public class SceneController : MonoBehaviour {
             {
                 return;
             }
-
+        if (!loaded)
+        {
             TrackableHit hit;
             TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
 
@@ -23,9 +24,23 @@ public class SceneController : MonoBehaviour {
             {
                 SetSelectedPlane(hit.Trackable as DetectedPlane, hit.Trackable.CreateAnchor(hit.Pose) as Anchor);
                 var generator = this.GetComponent<DetectedPlaneGenerator>();
+                loaded = true;
                 //generator.disablePlane();
                 //stopShowingPlanes();
             }
+        }
+        else
+        {
+            RaycastHit hit;
+            Ray ray = firstPersonCamera.ScreenPointToRay(Input.GetTouch(0).position);
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("Touched this mofo " + hit.transform.name);
+                Debug.Log("Height of object starting " + hit.transform.position.y + "Tall: " + hit.transform.lossyScale.y);
+            }
+        }
+
+            
     }
 
     void stopShowingPlanes()
@@ -64,6 +79,7 @@ public class SceneController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         QuitOnConnectionErrors();
+        loaded = false;
 	}
 	
 	// Update is called once per frame
