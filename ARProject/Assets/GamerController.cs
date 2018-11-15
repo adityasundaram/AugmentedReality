@@ -80,7 +80,10 @@ public class GamerController : MonoBehaviour {
                 {
                     UpdateEnergy(0.05f);
                     currentActions.Walk();
-                    Vector3 target = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
+                    //Vector3 target = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
+                    Vector3 camDir = firstPersonCamera.transform.forward;
+                    camDir.y = 0;
+                    Vector3 target = new  Vector3(camDir.x * h * speed * Time.deltaTime, 0, camDir.z * v * speed * Time.deltaTime);
                     Vector3 pos = currentCharacter.transform.position + target;
                     currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position, pos, speed);
                     var rotation = Quaternion.LookRotation(target);
