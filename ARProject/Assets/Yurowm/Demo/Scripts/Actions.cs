@@ -14,7 +14,7 @@ public class Actions : MonoBehaviour {
 	}
 
 	public void Stay () {
-		//animator.SetBool("Aiming", false);
+		animator.SetBool("Aiming", false);
 		animator.SetFloat ("Speed", 0f);
 		}
 
@@ -34,23 +34,18 @@ public class Actions : MonoBehaviour {
 	}
 
 	public void Death () {
-        //if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Death"))
-        //	animator.Play("Idle", 0);
-        //else
-        animator.SetBool("Squat", false);
-        animator.SetFloat("Speed", 0f);
-        animator.SetBool("Aiming", false);
-        animator.SetTrigger ("Death");
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Death"))
+			animator.Play("Idle", 0);
+		else
+			animator.SetTrigger ("Death");
 	}
 
 	public void Damage () {
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Death")) return;
 		int id = Random.Range(0, countOfDamageAnimations);
-		
-        if (countOfDamageAnimations > 1)
+		if (countOfDamageAnimations > 1)
 			while (id == lastDamageAnimation)
 				id = Random.Range(0, countOfDamageAnimations);
-
 		lastDamageAnimation = id;
 		animator.SetInteger ("DamageID", id);
 		animator.SetTrigger ("Damage");

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using System.Collections.Generic;
+using Global;
 
 public class GunScript : MonoBehaviour {
 
@@ -11,8 +12,14 @@ public class GunScript : MonoBehaviour {
     public AudioSource gunshot;
 
 
+    private GamerController GetGameController()
+    {
+        GamerController gameController = GameObject.FindWithTag("GameController").GetComponent<GamerController>();
+        return gameController;
+    }
 
-    private Transform findParentWithTag(string tagname,Transform obj){
+
+    private Transform FindParentWithTag(string tagname,Transform obj){
 
         Transform parent = obj.transform.parent;
 
@@ -26,20 +33,15 @@ public class GunScript : MonoBehaviour {
         return null;
     }
 
-    private GamerController getCurrentObjectGameController()
-    {
-        GamerController gameController = GameObject.FindWithTag("GameController").GetComponent<GamerController>();
-        return gameController;
-    }
 
-    private bool canFireCheck(){
-        GamerController mainGameController = GameObject.FindWithTag("GameController").GetComponent<GamerController>();
+
+    private bool canFireCheck(CharacterObject currentPlayer){
 
         // Now we need to get the parent of the gun -> whether the parent is player 1 or player 2
-        string match1 = findParentWithTag("Player", this.transform).name;
+        string match1 = FindParentWithTag("Player", this.transform).name;
 
         // This gets the current charater name invoking the script
-        string match2 = mainGameController.getCurrentCharacter().transform.name;
+        string match2 = currentPlayer.charObject.transform.name;
 
         // Fire only when both are originating from the same object
         if (match1 != null && match1 == match2)
@@ -54,27 +56,31 @@ public class GunScript : MonoBehaviour {
 
         if(CrossPlatformInputManager.GetButton("Fire")){
 
+            GamerController mainGameController = GetGameController();
+            int currentPlayerIndex = mainGameController.GetCurrentPlayerIndex();
+
+            CharacterObject currentObject = mainGameController.GetCharacterProperties(currentPlayerIndex);
+
             // Fire only when both are originating from the same object
-            if (canFireCheck())
+            if (canFireCheck(currentObject))
             {
-                GamerController current = getCurrentObjectGameController();
-                Actions currentActions = current.getCurrentActions();
-                currentActions.Attack();
-                //Debug.Log("Fire button pressed");
-                Shoot();
+                currentObject.charActions.Attack();
+                Shoot(mainGameController, currentObject, currentPlayerIndex, (currentPlayerIndex+1)%2);
             }
         }
     }
 
-    void Shoot()
+    void Shoot(GamerController mainGameController, CharacterObject currentPlayer, int currentPlayerIndex, int opponentIndex)
     {
+        // This is the ray which will hit the target
         RaycastHit hit;
+
+        // This is for the effect of shooting
         muzzleFlash.Play();
         AudioClip clip = gunshot.clip;
         gunshot.PlayOneShot(clip);
 
-        GamerController mainGameController = GameObject.FindWithTag("GameController").GetComponent<GamerController>();
-
+        // Updates the stamina of the player
         mainGameController.UpdateEnergy(0.5f);
 
         // This condition is true only when we have hit something with our ray
@@ -84,26 +90,14 @@ public class GunScript : MonoBehaviour {
 
 
             // This gets the action component of the player if the raycast hit a player
-            Actions character_actions = hit.transform.GetComponent<Actions>();
+            //Actions character_actions = hit.transform.GetComponent<Actions>();
 
-            // Character actions will be null if the player was not hit
-            if (character_actions!=null){
+            if (hit.transform.tag=="Player"){
+
+                //character_actions.Damage();
 
                 // This causes damage 
-                character_actions.Damage();
-                Dictionary<string, GameObject> healthDict = mainGameController.getCharacterHealthDict();
-                float health = float.Parse(healthDict[hit.transform.name].GetComponent<UnityEngine.UI.Text>().text);
-                health -= 2f;
-
-                if(health>0){
-                    healthDict[hit.transform.name].GetComponent<UnityEngine.UI.Text>().text = (health).ToString();
-                }
-                else{
-                    health = 0;
-                    healthDict[hit.transform.name].GetComponent<UnityEngine.UI.Text>().text = (health).ToString();
-                    //Debug.Log("character actions ");
-                    character_actions.Death();
-                }
+                mainGameController.TakeDamage(opponentIndex);
             }
         }
         else

@@ -31,13 +31,13 @@ public class SceneController : MonoBehaviour {
         }
         else
         {
-            RaycastHit hit;
+            /*RaycastHit hit;
             Ray ray = firstPersonCamera.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log("Touched this mofo " + hit.transform.name);
                 Debug.Log("Height of object starting " + hit.transform.position.y + "Tall: " + hit.transform.lossyScale.y);
-            }
+            }*/
         }
 
             
