@@ -236,21 +236,23 @@ public class GamerController : MonoBehaviour {
     }
 
     // This will set the plane and spawn the character
-    public void SetPlane(DetectedPlane plane, Anchor anchor)
+    public void SetPlane(DetectedPlane plane, Anchor anchor, TrackableHit hit)
     {
         detectedPlane = plane;
-        SpawnCharacter(anchor);
+        SpawnCharacter(anchor, hit);
     }
 
     // Initialzing the characters from the prefab
-    void SpawnCharacter(Anchor anchor)
+    void SpawnCharacter(Anchor anchor, TrackableHit hit)
     {
         if (characterObjects.Capacity < 2)
         {
             // Getting the pose of the detected plane
-            Vector3 pos = detectedPlane.CenterPose.position;
-            Vector3 spos = detectedPlane.CenterPose.position;
-
+            //Vector3 pos = detectedPlane.CenterPose.position;
+            //Vector3 spos = detectedPlane.CenterPose.position;
+            Vector3 pos = hit.Pose.position;
+            Vector3 spos = pos;
+            Debug.Log("Position instantiating is ->" + pos);
             // Setting the environemnt anchor
             Anchor envAnchor = anchor;
 
@@ -258,12 +260,12 @@ public class GamerController : MonoBehaviour {
             spos.y += 2.0f;
 
             // Instantiating the environemnt map
-            environmentMap = Instantiate(envPrefab, pos, Quaternion.identity, transform);
+            environmentMap = Instantiate(envPrefab, pos, hit.Pose.rotation);
 
             // Instantiating both the characters in different locations
             GameObject character1 = Instantiate(char1Prefab, spos, Quaternion.identity, transform);
-            spos.x += 1.0f;
-            spos.z += 0.5f;
+            spos.x += -0.5f;
+            spos.z += -0.5f;
             GameObject character2 = Instantiate(char2Prefab, spos, Quaternion.identity, transform);
            
 
@@ -284,7 +286,8 @@ public class GamerController : MonoBehaviour {
 
             // Fixing up the anchors for the game objects 
             newPos.y = detectedPlane.CenterPose.position.y;
-            environmentMap.transform.LookAt(newPos);
+            Debug.Log("Value of new pos is " + newPos);
+            //environmentMap.transform.LookAt(newPos);
             environmentMap.transform.parent = envAnchor.transform;
 
             characterObjects[0].charObject.transform.parent = envAnchor.transform;
