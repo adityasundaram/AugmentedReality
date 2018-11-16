@@ -132,13 +132,12 @@ public class GamerController : MonoBehaviour {
                 if (h != 0 || v != 0)
                 {
                     UpdateEnergy(0.05f);
-                    currentActions.Walk();
-                    //Vector3 target = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
-                    Vector3 camDir = firstPersonCamera.transform.forward;
-                    camDir.y = 0;
-                    Vector3 target = new  Vector3(camDir.x * h * speed * Time.deltaTime, 0, camDir.z * v * speed * Time.deltaTime);
-                    Vector3 pos = currentCharacter.transform.position + target;
-                    currentCharacter.transform.position = Vector3.Lerp(currentCharacter.transform.position, pos, speed);
+                    currentPlayerObject.charActions.Walk();
+                    Vector3 target = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
+                    target = firstPersonCamera.transform.TransformDirection(target);
+                    target.y = 0;
+                    Vector3 pos = currentPlayerObject.charController.transform.position + target;
+                    currentPlayerObject.charController.transform.position = Vector3.Lerp(currentPlayerObject.charController.transform.position, pos, speed);
                     var rotation = Quaternion.LookRotation(target);
                     currentPlayerObject.charObject.transform.rotation = Quaternion.Slerp(
                                             currentPlayerObject.charObject.transform.rotation, 
