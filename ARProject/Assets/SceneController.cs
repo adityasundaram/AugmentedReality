@@ -18,11 +18,11 @@ public class SceneController : MonoBehaviour {
         if (!loaded)
         {
             TrackableHit hit;
-            TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
+            TrackableHitFlags raycastFilter = TrackableHitFlags.FeaturePointWithSurfaceNormal | TrackableHitFlags.PlaneWithinPolygon;
 
             if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
             {
-                SetSelectedPlane(hit.Trackable as DetectedPlane, hit.Trackable.CreateAnchor(hit.Pose) as Anchor);
+                SetSelectedPlane(hit.Trackable as DetectedPlane, Session.CreateAnchor(hit.Pose) as Anchor, hit);
                 var generator = this.GetComponent<DetectedPlaneGenerator>();
                 loaded = true;
                 //generator.disablePlane();
@@ -49,16 +49,16 @@ public class SceneController : MonoBehaviour {
         {
             Renderer r = plane.GetComponent<Renderer>();
             DetectedPlaneVisualizer t = plane.GetComponent<DetectedPlaneVisualizer>();
-            t.disableMesh();
+            //t.disableMesh();
             r.enabled = false;
             t.enabled = false;
         }
     }
 
-    void SetSelectedPlane(DetectedPlane selectedPlane, Anchor anchor)
+    void SetSelectedPlane(DetectedPlane selectedPlane, Anchor anchor, TrackableHit hit)
     {
         //Debug.Log(" Selected Plane centered at " + selectedPlane.CenterPose.position);
-        characterController.SetPlane(selectedPlane, anchor);
+        characterController.SetPlane(selectedPlane, anchor, hit);
     }
 
     void QuitOnConnectionErrors()

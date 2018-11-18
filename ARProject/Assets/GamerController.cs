@@ -252,7 +252,6 @@ public class GamerController : MonoBehaviour {
             //Vector3 spos = detectedPlane.CenterPose.position;
             Vector3 pos = hit.Pose.position;
             Vector3 spos = pos;
-            Debug.Log("Position instantiating is ->" + pos);
             // Setting the environemnt anchor
             Anchor envAnchor = anchor;
 
@@ -260,12 +259,13 @@ public class GamerController : MonoBehaviour {
             spos.y += 2.0f;
 
             // Instantiating the environemnt map
-            environmentMap = Instantiate(envPrefab, pos, hit.Pose.rotation);
+            environmentMap = Instantiate(envPrefab, pos, Quaternion.identity, anchor.transform);
 
             // Instantiating both the characters in different locations
+            
             GameObject character1 = Instantiate(char1Prefab, spos, Quaternion.identity, transform);
-            spos.x += -0.5f;
-            spos.z += -0.5f;
+            //spos.x += 0.5f;
+            //spos.z += 0.5f;
             GameObject character2 = Instantiate(char2Prefab, spos, Quaternion.identity, transform);
            
 
@@ -287,11 +287,6 @@ public class GamerController : MonoBehaviour {
             // Fixing up the anchors for the game objects 
             newPos.y = detectedPlane.CenterPose.position.y;
             Debug.Log("Value of new pos is " + newPos);
-            //environmentMap.transform.LookAt(newPos);
-            environmentMap.transform.parent = envAnchor.transform;
-
-            characterObjects[0].charObject.transform.parent = envAnchor.transform;
-            characterObjects[1].charObject.transform.parent = envAnchor.transform;
 
             // Starting with the first player
             currentPlayer = 0;
