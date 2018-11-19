@@ -256,18 +256,20 @@ public class GamerController : MonoBehaviour {
             Anchor envAnchor = anchor;
 
 
-            spos.y += 2.0f;
-
             // Instantiating the environemnt map
             environmentMap = Instantiate(envPrefab, pos, Quaternion.identity, anchor.transform);
 
+            //Get All spawn locations
+            GameObject[] spawns = GameObject.FindGameObjectsWithTag("food");
+            Vector3 loc1 = spawns[0].transform.position;
+            Vector3 loc2 = spawns[1].transform.position;
+            Destroy(spawns[0]);
+            Destroy(spawns[1]);
             // Instantiating both the characters in different locations
-            
-            GameObject character1 = Instantiate(char1Prefab, spos, Quaternion.identity, transform);
+            GameObject character1 = Instantiate(char1Prefab, loc1, Quaternion.identity, transform);
             //spos.x += 0.5f;
             //spos.z += 0.5f;
-            GameObject character2 = Instantiate(char2Prefab, spos, Quaternion.identity, transform);
-           
+            GameObject character2 = Instantiate(char2Prefab, loc2, Quaternion.identity, transform);
 
             Vector3 newPos = new Vector3(firstPersonCamera.transform.position.x, spos.y, firstPersonCamera.transform.position.z);
 
@@ -280,13 +282,12 @@ public class GamerController : MonoBehaviour {
 
             // Changing the name of the objects and their looking pose
             characterObjects[0].charObject.transform.name = "Player_1";
-            characterObjects[0].charObject.transform.LookAt(newPos);
+            characterObjects[0].charObject.transform.LookAt(loc2);
             characterObjects[1].charObject.transform.name = "Player_2";
-            characterObjects[1].charObject.transform.LookAt(newPos);
+            characterObjects[1].charObject.transform.LookAt(loc1);
 
             // Fixing up the anchors for the game objects 
             newPos.y = detectedPlane.CenterPose.position.y;
-            Debug.Log("Value of new pos is " + newPos);
 
             // Starting with the first player
             currentPlayer = 0;

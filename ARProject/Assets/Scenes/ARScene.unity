@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 648851767}
-  envPrefab: {fileID: 1837949984433678, guid: fc2840e9b28fca84eb729189bf87bea0, type: 2}
+  envPrefab: {fileID: 1483139897311156, guid: 9eec0b2f4e852a34bbddd6da942e6c69, type: 2}
   char1Prefab: {fileID: 100098, guid: e5472f28773459641807c83644c0bef5, type: 2}
   char2Prefab: {fileID: 100066, guid: d11271f917495424a810bb5554cb993b, type: 2}
   char1health: {fileID: 1922419091}
