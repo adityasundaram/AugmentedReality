@@ -6,6 +6,8 @@ TagManager:
   tags:
   - food
   - Plane
+  - Cannon1
+  - -135
   layers:
   - Default
   - TransparentFX

@@ -16,4 +16,10 @@ namespace Global{
         public bool WeaponAllowed;
         public int currentWeaponIndex;
     }
+
+    public struct Cannons
+    {
+        public static int cannonSelected = 0;
+        public static int[] cannonAngles = new int[]{-135, -220, 45, -90};
+    }
 }
