@@ -8,6 +8,7 @@ TagManager:
   - Plane
   - Cannon1
   - -135
+  - Toggle
   layers:
   - Default
   - TransparentFX

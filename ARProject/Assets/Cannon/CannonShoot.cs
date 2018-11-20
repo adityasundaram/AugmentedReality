@@ -40,7 +40,7 @@ public class CannonShoot : MonoBehaviour
 		
 		//shoot cannon
 		GameObject cannonBallToShoot = Instantiate(cannonBall, transform.position, transform.rotation);
-		cannonBallToShoot.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0, 0, firePower * 1.414f *0.145f));
+        cannonBallToShoot.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0, 0, firePower * 1.414f * 0.145f));
 	}
 
 }

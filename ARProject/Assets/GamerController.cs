@@ -147,6 +147,11 @@ public class GamerController : MonoBehaviour {
                 else if (CrossPlatformInputManager.GetButton("SwitchWeapon"))
                 {
                     currentPlayerObject.charController.SetArsenal(GetWeaponName());
+
+                    //change projectile path angle
+                    GameObject projectilePath = currentPlayerObject.charObject.transform.Find("ProjectilePath").gameObject;
+                    currentPlayerObject.charObject.GetComponentInChildren<LaunchArcScript>().RenderArc(45);
+
                     currentPlayerObject.charActions.Aiming();
                 }
                 else

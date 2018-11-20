@@ -35,7 +35,6 @@ public class LaunchArcScript : MonoBehaviour
 
 	public void setAccordingToTime()
 	{	
-		
 		float vz = velocity * Mathf.Cos(radianAngle);
 		float vy = velocity * Mathf.Sin(radianAngle);
 		int index = 1;

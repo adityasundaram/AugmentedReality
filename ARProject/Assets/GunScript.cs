@@ -54,7 +54,7 @@ public class GunScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(CrossPlatformInputManager.GetButton("Fire")){
+        if(CrossPlatformInputManager.GetButton("HelloFire")){
 
             GamerController mainGameController = GetGameController();
             int currentPlayerIndex = mainGameController.GetCurrentPlayerIndex();
