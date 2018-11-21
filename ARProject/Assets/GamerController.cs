@@ -65,16 +65,13 @@ public class GamerController : MonoBehaviour {
                 weaponList = new List<string> { "Empty", "One Pistol", "Two Pistols" };
                 break;
             case "Sci-Fi_Soldier(Clone)":
-                weaponList = new List<string> { "Empty", "Rifle"};
+                weaponList = new List<string> { "Rifle"};
                 break;
             case "Soldier(Clone)":
-                weaponList = new List<string> { "Empty", "Sniper Rifle", "AK-74M" };
-                break;
-            case "SportyGirl(Clone)":
-                weaponList = new List<string> { "Empty"};
+                weaponList = new List<string> { "Sniper Rifle", "AK-74M" };
                 break;
             case "ContractKiller(Clone)":
-                weaponList = new List<string> { "Empty", "One Pistol", "Two Pistols" };
+                weaponList = new List<string> { "One Pistol", "Two Pistols" };
                 break;
             default:
                 break;
@@ -89,8 +86,12 @@ public class GamerController : MonoBehaviour {
         CharacterObject result = new CharacterObject();
 
         result.WeaponList = GetCharacterWeaponList(character.name);
+
+        Debug.Log(result.WeaponList);
+
         result.WeaponAllowed = true;
         result.currentWeaponIndex = 0;
+        result.weaponName = result.WeaponList[0];
 
         result.charObject = character;
         result.charController = character.GetComponent<PlayerController>();
@@ -165,7 +166,10 @@ public class GamerController : MonoBehaviour {
                     else
                     {
                         grenadeSlider.SetActive(false);
-                        currentPlayerObject.charObject.transform.Find("ProjectilePath").GetComponent<LaunchArcScript>().DeleteArc();
+                        if (currentPlayerObject.charObject.transform.Find("ProjectilePath") != null){
+                            currentPlayerObject.charObject.transform.Find("ProjectilePath").GetComponent<LaunchArcScript>().DeleteArc();
+                        }
+
                     }
 
                     currentPlayerObject.weaponName = weaponName;
@@ -204,6 +208,7 @@ public class GamerController : MonoBehaviour {
         {
             currentPlayerObject.currentWeaponIndex = (currentPlayerObject.currentWeaponIndex + 1) % currentPlayerObject.WeaponList.Capacity;
         }
+
         return currentPlayerObject.WeaponList[currentPlayerObject.currentWeaponIndex];
     }
 
@@ -323,8 +328,8 @@ public class GamerController : MonoBehaviour {
             // Starting with the first player
             currentPlayer = 0;
             currentPlayerObject = characterObjects[0];
-            currentPlayerObject.weaponName = "Empty";
-            
+            weaponSwitch.GetComponentInChildren<Text>().text = currentPlayerObject.weaponName;
+
             //Adding markdown to current player
             markdown.Add(characterObjects[0].charObject.transform.Find("Markdown").gameObject);
             markdown.Add(characterObjects[1].charObject.transform.Find("Markdown").gameObject);

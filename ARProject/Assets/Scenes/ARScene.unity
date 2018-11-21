@@ -2386,9 +2386,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 648851767}
   envPrefab: {fileID: 1837949984433678, guid: fc2840e9b28fca84eb729189bf87bea0, type: 2}
-  char1Prefab: {fileID: 1446569320154800, guid: f960d8f769c054b0ba705c76cec27cdd,
+  char1Prefab: {fileID: 100066, guid: d11271f917495424a810bb5554cb993b, type: 2}
+  char2Prefab: {fileID: 1446569320154800, guid: f960d8f769c054b0ba705c76cec27cdd,
     type: 2}
-  char2Prefab: {fileID: 100066, guid: d11271f917495424a810bb5554cb993b, type: 2}
   char1health: {fileID: 1922419091}
   char2health: {fileID: 168013513}
   charEnergy: {fileID: 2027737858}

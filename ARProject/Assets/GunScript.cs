@@ -54,7 +54,9 @@ public class GunScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(CrossPlatformInputManager.GetButton("HelloFire")){
+        if(CrossPlatformInputManager.GetButtonDown("Fire")){
+
+
 
             GamerController mainGameController = GetGameController();
             int currentPlayerIndex = mainGameController.GetCurrentPlayerIndex();
@@ -62,7 +64,7 @@ public class GunScript : MonoBehaviour {
             CharacterObject currentObject = mainGameController.GetCharacterProperties(currentPlayerIndex);
 
             // Fire only when both are originating from the same object
-            if (canFireCheck(currentObject))
+            if (canFireCheck(currentObject) && currentObject.weaponName!="Grenade")
             {
                 currentObject.charActions.Attack();
                 Shoot(mainGameController, currentObject, currentPlayerIndex, (currentPlayerIndex+1)%2);
@@ -78,6 +80,9 @@ public class GunScript : MonoBehaviour {
         // This is for the effect of shooting
         muzzleFlash.Play();
         AudioClip clip = gunshot.clip;
+
+        Debug.Log("Audio Clip"+ clip.name);
+        Debug.Log(gunshot.enabled);
         gunshot.PlayOneShot(clip);
 
         // Updates the stamina of the player
