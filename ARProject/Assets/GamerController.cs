@@ -201,7 +201,7 @@ public class GamerController : MonoBehaviour {
     {
         if (currentPlayerObject.WeaponAllowed)
         {
-            currentPlayerObject.currentWeaponIndex = (currentPlayerObject.currentWeaponIndex + 1) % currentPlayerObject.WeaponList.Capacity;
+            currentPlayerObject.currentWeaponIndex = (currentPlayerObject.currentWeaponIndex + 1) % currentPlayerObject.WeaponList.Count;
         }
 
         currentPlayerObject.weaponName = currentPlayerObject.WeaponList[currentPlayerObject.currentWeaponIndex];
