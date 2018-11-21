@@ -1,16 +1,13 @@
 ﻿<Properties StartupConfiguration="{6F3B1A3C-2B4E-0C02-BD08-AEF49C45C39A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GrenadeScripts/GrenadeScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Cannon/CannonShoot.cs">
     <Files>
-      <File FileName="Assets/GunScript.cs" Line="59" Column="13" />
-      <File FileName="Assets/GamerController.cs" Line="61" Column="30" />
+      <File FileName="Assets/GunScript.cs" Line="89" Column="47" />
+      <File FileName="Assets/GamerController.cs" Line="92" Column="50" />
       <File FileName="Assets/Globals.cs" Line="18" Column="6" />
-      <File FileName="Assets/Cannon/CannonShoot.cs" Line="30" Column="3" />
-      <File FileName="Assets/Cannon/SliderScript.cs" Line="15" Column="33" />
-      <File FileName="Assets/Cannon/LaunchArcScript.cs" Line="24" Column="24" />
-      <File FileName="Assets/Yurowm/Demo/Scripts/PlayerController.cs" Line="20" Column="41" />
-      <File FileName="Assets/GrenadeScripts/GrenadeExplosion.cs" Line="6" Column="5" />
-      <File FileName="Assets/GrenadeScripts/GrenadeScript.cs" Line="25" Column="9" />
+      <File FileName="Assets/Cannon/CannonShoot.cs" Line="36" Column="74" />
+      <File FileName="Assets/GrenadeScripts/GrenadeExplosion.cs" Line="12" Column="23" />
+      <File FileName="Assets/GrenadeScripts/GrenadeScript.cs" Line="77" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -226,7 +226,7 @@ MonoBehaviour:
   Range: 100
   muzzleFlash: {fileID: 198798502793846832, guid: 1493f9878f1a95c4e8e3499f6ee36d07,
     type: 2}
-  gunshot: {fileID: 82646821956852740, guid: 1493f9878f1a95c4e8e3499f6ee36d07, type: 2}
+  gunshot: {fileID: 82081622553802382}
 --- !u!198 &198047002964370252
 ParticleSystem:
   m_ObjectHideFlags: 1

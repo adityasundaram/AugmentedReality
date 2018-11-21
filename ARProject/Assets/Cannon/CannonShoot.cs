@@ -10,8 +10,15 @@ public class CannonShoot : MonoBehaviour
 	public GameObject cannonBall;
 	public AudioSource cannonSound;
 	public ParticleSystem muzzleFlash;
-	
-	public float firePower;
+
+
+    private GamerController GetGameController()
+    {
+        GamerController gameController = GameObject.FindWithTag("GameController").GetComponent<GamerController>();
+        return gameController;
+    }
+
+    public float firePower;
 	// Use this for initialization
 	void Start ()
 	{
@@ -24,8 +31,13 @@ public class CannonShoot : MonoBehaviour
 			GameObject cannon = gameObject.transform.parent.gameObject; 
 			if (cannon.name.Equals("Cannon"+Cannons.cannonSelected))
 			{
-				ShootCannon();				
-			}
+				ShootCannon();
+
+                GamerController mainGameController = GetGameController();
+                // Updates the stamina of the player
+                mainGameController.UpdateEnergy(20f);
+
+            }
 		}
 	}
 

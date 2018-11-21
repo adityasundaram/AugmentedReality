@@ -54,7 +54,6 @@ public class GamerController : MonoBehaviour {
 
     public List<string> GetCharacterWeaponList(string prefabName)
     {
-        Debug.Log(prefabName);
         List<string> weaponList = new List<string>();
 
         switch(prefabName){
@@ -65,13 +64,13 @@ public class GamerController : MonoBehaviour {
                 weaponList = new List<string> { "Empty", "One Pistol", "Two Pistols" };
                 break;
             case "Sci-Fi_Soldier(Clone)":
-                weaponList = new List<string> { "Rifle"};
+                weaponList = new List<string> { "Empty", "Rifle"};
                 break;
             case "Soldier(Clone)":
-                weaponList = new List<string> { "Sniper Rifle", "AK-74M" };
+                weaponList = new List<string> { "Empty", "Sniper Rifle", "AK-74M" };
                 break;
             case "ContractKiller(Clone)":
-                weaponList = new List<string> { "One Pistol", "Two Pistols" };
+                weaponList = new List<string> { "Empty", "One Pistol", "Two Pistols" };
                 break;
             default:
                 break;
@@ -87,7 +86,6 @@ public class GamerController : MonoBehaviour {
 
         result.WeaponList = GetCharacterWeaponList(character.name);
 
-        Debug.Log(result.WeaponList);
 
         result.WeaponAllowed = true;
         result.currentWeaponIndex = 0;
@@ -103,8 +101,6 @@ public class GamerController : MonoBehaviour {
 
     void Start()
     {
-
-        //Debug.Log(char1Prefab.transform.name);
 
         characterObjects = new List<CharacterObject>();
 
@@ -172,7 +168,6 @@ public class GamerController : MonoBehaviour {
 
                     }
 
-                    currentPlayerObject.weaponName = weaponName;
                     weaponSwitch.GetComponentInChildren<Text>().text = weaponName;
                     currentPlayerObject.charController.SetArsenal(weaponName);
                     currentPlayerObject.charActions.Aiming();
@@ -209,7 +204,9 @@ public class GamerController : MonoBehaviour {
             currentPlayerObject.currentWeaponIndex = (currentPlayerObject.currentWeaponIndex + 1) % currentPlayerObject.WeaponList.Capacity;
         }
 
-        return currentPlayerObject.WeaponList[currentPlayerObject.currentWeaponIndex];
+        currentPlayerObject.weaponName = currentPlayerObject.WeaponList[currentPlayerObject.currentWeaponIndex];
+
+        return currentPlayerObject.weaponName;
     }
 
     public void UpdateEnergy(float value){
@@ -323,7 +320,6 @@ public class GamerController : MonoBehaviour {
             
             // Fixing up the anchors for the game objects 
             newPos.y = detectedPlane.CenterPose.position.y;
-            Debug.Log("Value of new pos is " + newPos);
 
             // Starting with the first player
             currentPlayer = 0;

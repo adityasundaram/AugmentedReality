@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1380495851544522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 536.7598, y: 145.85574, z: -3895.4487}
+  m_LocalPosition: {x: 527.5622, y: 143.20949, z: -3897.303}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4093373615781220}
@@ -224,9 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Range: 100
-  muzzleFlash: {fileID: 198798502793846832, guid: 1493f9878f1a95c4e8e3499f6ee36d07,
-    type: 2}
-  gunshot: {fileID: 82646821956852740, guid: 1493f9878f1a95c4e8e3499f6ee36d07, type: 2}
+  muzzleFlash: {fileID: 198275179424635798}
+  gunshot: {fileID: 82031129569231440}
 --- !u!198 &198275179424635798
 ParticleSystem:
   m_ObjectHideFlags: 1

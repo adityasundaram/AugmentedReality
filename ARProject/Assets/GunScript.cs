@@ -80,9 +80,6 @@ public class GunScript : MonoBehaviour {
         // This is for the effect of shooting
         muzzleFlash.Play();
         AudioClip clip = gunshot.clip;
-
-        Debug.Log("Audio Clip"+ clip.name);
-        Debug.Log(gunshot.enabled);
         gunshot.PlayOneShot(clip);
 
         // Updates the stamina of the player
@@ -91,16 +88,7 @@ public class GunScript : MonoBehaviour {
         // This condition is true only when we have hit something with our ray
         if (Physics.Raycast(this.gameObject.transform.position, this.gameObject.transform.forward, out hit, Range))
         {
-            //Debug.Log(hit.transform.name);
-
-
-            // This gets the action component of the player if the raycast hit a player
-            //Actions character_actions = hit.transform.GetComponent<Actions>();
-
             if (hit.transform.tag=="Player"){
-
-                //character_actions.Damage();
-
                 // This causes damage 
                 mainGameController.TakeDamage(opponentIndex);
             }
