@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 using Global;
@@ -22,7 +24,9 @@ public class GamerController : MonoBehaviour {
     public GameObject char1health;
     public GameObject char2health;
     public GameObject charEnergy;
+    public GameObject weaponSwitch;
 
+    public GameObject grenadeSlider;
 
     // Contains all characters who have been instantiated
     private List<CharacterObject> characterObjects;
@@ -44,6 +48,8 @@ public class GamerController : MonoBehaviour {
 
     private float speed = 0.4f;
 
+    private List<GameObject> markdown;
+
     // Initializing functions
 
     public List<string> GetCharacterWeaponList(string prefabName)
@@ -53,7 +59,7 @@ public class GamerController : MonoBehaviour {
 
         switch(prefabName){
             case "CyborgGirl(Clone)":
-                weaponList = new List<string> { "Empty", "YM-3 Pistols", "Two Pistols", "YM-27 Rifle" };
+                weaponList = new List<string> { "Empty", "Grenade", "YM-3 Pistols", "Two Pistols", "YM-27 Rifle" };
                 break;
             case "SciFiEngineer(Clone)":
                 weaponList = new List<string> { "Empty", "One Pistol", "Two Pistols" };
@@ -107,6 +113,11 @@ public class GamerController : MonoBehaviour {
         characterHealthIndex.Add("Player_2",char2health);
 
         popupCanvas.enabled = false;
+        
+        markdown = new List<GameObject>();
+        
+        //grenade Slider hide
+        grenadeSlider.SetActive(false);
     }
 
 
@@ -144,14 +155,22 @@ public class GamerController : MonoBehaviour {
                                             rotation,
                                             Time.deltaTime * 30f);
                 }
-                else if (CrossPlatformInputManager.GetButton("SwitchWeapon"))
+                else if (CrossPlatformInputManager.GetButtonDown("SwitchWeapon"))
                 {
-                    currentPlayerObject.charController.SetArsenal(GetWeaponName());
+                    String weaponName = GetWeaponName();
+                    if (weaponName.Equals("Grenade"))
+                    {
+                        grenadeSlider.SetActive(true);
+                    }
+                    else
+                    {
+                        grenadeSlider.SetActive(false);
+                        currentPlayerObject.charObject.transform.Find("ProjectilePath").GetComponent<LaunchArcScript>().DeleteArc();
+                    }
 
-                    //change projectile path angle
-                    GameObject projectilePath = currentPlayerObject.charObject.transform.Find("ProjectilePath").gameObject;
-                    currentPlayerObject.charObject.GetComponentInChildren<LaunchArcScript>().RenderArc(45);
-
+                    currentPlayerObject.weaponName = weaponName;
+                    weaponSwitch.GetComponentInChildren<Text>().text = weaponName;
+                    currentPlayerObject.charController.SetArsenal(weaponName);
                     currentPlayerObject.charActions.Aiming();
                 }
                 else
@@ -171,9 +190,11 @@ public class GamerController : MonoBehaviour {
 
     public void SwitchPlayer(){
     
+        markdown[currentPlayer].SetActive(false);
         currentPlayerObject.charActions.Stay();
         currentPlayer = (currentPlayer + 1) % 2;
         currentPlayerObject = characterObjects[currentPlayer];
+        markdown[currentPlayer].SetActive(true);
         popupCanvas.enabled = true;
     }
 
@@ -203,6 +224,11 @@ public class GamerController : MonoBehaviour {
     }
 
 
+    public CharacterObject GetCurrentCharacterObject()
+    {
+        return currentPlayerObject;
+    }
+    
     public CharacterObject GetCharacterProperties(int index){
         return characterObjects[index];
     }
@@ -285,10 +311,11 @@ public class GamerController : MonoBehaviour {
 
             // Changing the name of the objects and their looking pose
             characterObjects[0].charObject.transform.name = "Player_1";
-            characterObjects[0].charObject.transform.LookAt(newPos);
+            characterObjects[0].charObject.transform.LookAt(newPos);            
             characterObjects[1].charObject.transform.name = "Player_2";
             characterObjects[1].charObject.transform.LookAt(newPos);
-
+        
+            
             // Fixing up the anchors for the game objects 
             newPos.y = detectedPlane.CenterPose.position.y;
             Debug.Log("Value of new pos is " + newPos);
@@ -296,6 +323,12 @@ public class GamerController : MonoBehaviour {
             // Starting with the first player
             currentPlayer = 0;
             currentPlayerObject = characterObjects[0];
+            currentPlayerObject.weaponName = "Empty";
+            
+            //Adding markdown to current player
+            markdown.Add(characterObjects[0].charObject.transform.Find("Markdown").gameObject);
+            markdown.Add(characterObjects[1].charObject.transform.Find("Markdown").gameObject);
+            markdown[1].SetActive(false);
         }
     }
 }

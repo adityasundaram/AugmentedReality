@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 637
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -105,10 +105,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 681, y: 492}
-  m_MaxSize: {x: 12006, y: 14042}
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 12008, y: 14042}
   vertical: 0
-  controlID: 1504
+  controlID: 34
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 587
-  m_MinSize: {x: 681, y: 492}
-  m_MaxSize: {x: 12006, y: 14042}
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 12008, y: 14042}
   vertical: 1
-  controlID: 1505
+  controlID: 35
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 316
-  m_MinSize: {x: 681, y: 221}
-  m_MaxSize: {x: 12006, y: 4021}
+  m_MinSize: {x: 683, y: 221}
+  m_MaxSize: {x: 12008, y: 4021}
   vertical: 0
-  controlID: 1506
+  controlID: 36
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 202
     height: 316
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -287,9 +287,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 463b0000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0e20efff7c20efffe620efff1024efff6628efffd428efff3e29efff682cefff9023f2ff4428f2ffc428f2ff4029f2ff6a2cf2ff8a19f4ff1a3af4ffac3af4ff3a3bf4ff643ef4ffc046f4ff5247f4ffe047f4ff0a4bf4ff464ff4ffd84ff4ff6650f4ff9053f4fff858f4ff8a59f4ff185af4ff425df4ffa661f4ff3862f4ffc662f4fff065f4ffd887f4ff6a88f4fff888f4ff368cf4ff249cf4ffa49cf4ff209df4ff4aa0f4ff9ebbf4ff38bcf4ffcebcf4fffabff4ff6ccaf4ff06cbf4ff9ccbf4ffc8cef4ff8ed3f4ff28d4f4ffbed4f4ffead7f4ffe6dcf4ff80ddf4ff16def4ff42e1f4ff5817f5fff017f5ff8418f5ffb01bf5ff2251f5ffba51f5ff4e52f5ff7a55f5fffc5bf5ff945cf5ff285df5ff5260f5ff8c88f5ff2489f5ffb889f5ffe28cf5ff6eacf7ff88acf7ffa6acf7ffa62ef8ffd8d6f8ff9adefcfff4e4fcff8ce5fcff20e6fcff4ae9fcffc827fdffb02bfdfffe35fdff7e36fdfffa36fdff243afdff664dfeff4e51feff1865feff9865feff1466feff3e69feffc276ffffaa7affff4289ffffd289ffff5e8affff888dffffba92ffff4a93ffffd693ffff1497ffff9ea2ffff82a3ffff62a4ffff8ca7ffff56b0ffff3ab1ffff1ab2ffff44b5ffffacedffff94f1ffffe4fbffff00000000d0dd0000a2e7000098ee000046fb00007c090100be250100
+    m_ExpandedIDs: c85ffeffaa60feff1e61feff8a64feff2e6afeff106bfeff846bfefff06efeffe072feffc273feff3674feffa277feffd07bfeffb27cfeff267dfeff9280feffde85feffc086feff3487feffa08afeffd8bdfeff34c2feff16c3feff8ac3fefff6c6feffde59ffff5ac6ffff3cc7ffffb0c7ffff1ccbffffdcdaffff82eaffff00000000948b0000ce8b0000588c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -339,14 +339,14 @@ MonoBehaviour:
     height: 295
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 12165.621956077424
+  lastFramingTime: 13009.517488643285
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 250.0149, y: 513.61, z: 0}
+    m_Target: {x: 826.85754, y: 381.29227, z: -1953.146}
     speed: 2
-    m_Value: {x: 250.0149, y: 513.61, z: 0}
+    m_Value: {x: 826.85754, y: 381.29227, z: -1953.146}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -374,13 +374,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.07880967, y: -0.020188818, z: -0.0015424734, w: -0.9967313}
+    m_Target: {x: -0.031217447, y: 0.72901887, z: -0.03321663, w: -0.68305063}
     speed: 2
-    m_Value: {x: 0.07880596, y: -0.020187868, z: -0.0015424008, w: -0.9966844}
+    m_Value: {x: -0.031215817, y: 0.7289808, z: -0.033214893, w: -0.683015}
   m_Size:
-    m_Target: 256.75815
+    m_Target: 0.9535534
     speed: 2
-    m_Value: 256.75815
+    m_Value: 0.9535534
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -427,10 +427,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -399.5
-    m_HBaseRangeMax: 399.5
-    m_VBaseRangeMin: -139
-    m_VBaseRangeMax: 139
+    m_HBaseRangeMin: -266.33334
+    m_HBaseRangeMax: 266.33334
+    m_VBaseRangeMin: -92.66667
+    m_VBaseRangeMax: 92.66667
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -540,36 +540,36 @@ MonoBehaviour:
     m_ReferencingInstanceIDs: 
     m_ScenePaths: []
     m_ShowAllHits: 0
-    m_SearchArea: 0
+    m_SearchArea: 1
     m_Folders:
-    - Assets/Cannon
+    - Assets/Yurowm/Characters/Cyborg Girl
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Cannon
+  - Assets/Yurowm/Characters/Cyborg Girl
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\kisha\Desktop\Courses\ARVR\git\AugmentedReality\AugmentedReality\ARProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 55}
-    m_SelectedIDs: 1a530000
-    m_LastClickedID: 21274
-    m_ExpandedIDs: 00000000182e0000de2e00003230000022340000bc340000f0360000aa370000c8370000aa3800002a3a0000663a0000e63a0000aa460000b246000000490000704900002e4a0000f24d00001a500000b451000018520000745200001a5300004c6900004e6900005069000000ca9a3b
+    scrollPos: {x: 0, y: 443}
+    m_SelectedIDs: dc5f0000
+    m_LastClickedID: 24540
+    m_ExpandedIDs: 00000000864f0000a0510000925500006e58000028590000465900001a5a00009e5b0000d65b000002620000686700003a68000042680000826a0000f46a0000aa6b00006c6f00009c71000098730000f47300000a8800000c8800000e88000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Sci-fi Soldier
+      m_OriginalName: Sci-fi Soldier
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 21920
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 4
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -583,7 +583,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000182e0000de2e00003230000022340000bc340000f0360000aa370000aa3800002a3a0000663a0000e63a0000aa460000b246000000490000704900002e4a0000f24d00001a500000b451000018520000745200001a5300004c6900004e6900005069000000ca9a3b
+    m_ExpandedIDs: 00000000864f00004c500000a0510000925500002c5600006e58000028590000465900001a5a00009e5b0000d65b0000565c00003a68000042680000826a0000f46a0000aa6b00006c6f00009c7100003a73000098730000f4730000987400000a8800000c8800000e880000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

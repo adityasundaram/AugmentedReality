@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,13 +16,14 @@ namespace Global{
 
         public bool WeaponAllowed;
         public int currentWeaponIndex;
+        public String weaponName;
     }
 
 
 
     public struct Cannons
     {
-        public static int cannonSelected = 1;
+        public static int cannonSelected = 0;
         public static int[] cannonAngles = new int[]{-135, -220, 45, -90};
     }
 }
