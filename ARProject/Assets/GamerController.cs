@@ -295,12 +295,19 @@ public class GamerController : MonoBehaviour {
             environmentMap = Instantiate(envPrefab, pos, Quaternion.identity, anchor.transform);
 
             // Instantiating both the characters in different locations
-            
-            GameObject character1 = Instantiate(char1Prefab, spos, Quaternion.identity, transform);
+
+            //Get All spawn locations
+            GameObject[] spawns = GameObject.FindGameObjectsWithTag("food");
+            Vector3 loc1 = spawns[0].transform.position;
+            Vector3 loc2 = spawns[1].transform.position;
+            Destroy(spawns[0]);
+            Destroy(spawns[1]);
+            // Instantiating both the characters in different locations
+            GameObject character1 = Instantiate(char1Prefab, loc1, Quaternion.identity, transform);
             //spos.x += 0.5f;
             //spos.z += 0.5f;
-            GameObject character2 = Instantiate(char2Prefab, spos, Quaternion.identity, transform);
-           
+            GameObject character2 = Instantiate(char2Prefab, loc2, Quaternion.identity, transform);
+
 
             Vector3 newPos = new Vector3(firstPersonCamera.transform.position.x, spos.y, firstPersonCamera.transform.position.z);
 
