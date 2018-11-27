@@ -75,6 +75,7 @@ public class GrenadeScript : MonoBehaviour {
             {
                 currentObject.charActions.Attack();
                 ThrowGrenade();
+                mainGameController.UpdateEnergy(20f);
             }
         }
 
@@ -82,11 +83,11 @@ public class GrenadeScript : MonoBehaviour {
 
     public void ThrowGrenade()
     {
-        Debug.Log("Reached to throwing");
+        //Debug.Log("Reached to throwing");
 
-        Debug.Log(GrenadeObject);
-        Debug.Log(transform.position);
-        Debug.Log(transform.rotation);
+        //Debug.Log(GrenadeObject);
+        //Debug.Log(transform.position);
+        //Debug.Log(transform.rotation);
         //shoot grenade
         GameObject grenadeObjectToThrow = Instantiate(GrenadeObject, transform.position, transform.rotation);
         grenadeObjectToThrow.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0, 0, firepower * 1.414f * 0.23f));

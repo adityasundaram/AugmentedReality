@@ -35,7 +35,7 @@ public class CannonShoot : MonoBehaviour
 
                 GamerController mainGameController = GetGameController();
                 // Updates the stamina of the player
-                mainGameController.UpdateEnergy(20f);
+                mainGameController.UpdateEnergy(40f);
 
             }
 		}

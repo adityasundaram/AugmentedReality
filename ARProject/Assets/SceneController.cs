@@ -25,8 +25,8 @@ public class SceneController : MonoBehaviour {
                 SetSelectedPlane(hit.Trackable as DetectedPlane, Session.CreateAnchor(hit.Pose) as Anchor, hit);
                 var generator = this.GetComponent<DetectedPlaneGenerator>();
                 loaded = true;
-                //generator.disablePlane();
-                //stopShowingPlanes();
+                generator.disablePlane();
+                stopShowingPlanes();
             }
         }
         else

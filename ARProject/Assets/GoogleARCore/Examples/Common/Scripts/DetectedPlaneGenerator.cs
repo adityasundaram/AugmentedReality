@@ -39,10 +39,15 @@ namespace GoogleARCore.Examples.Common
         /// the application to avoid per-frame allocations.
         /// </summary>
         private List<DetectedPlane> m_NewPlanes = new List<DetectedPlane>();
-
+        private bool drawPlanes;
         /// <summary>
         /// The Unity Update method.
         /// </summary>
+        /// 
+        public void Start()
+        {
+            drawPlanes = true;
+        }
         public void Update()
         {
             // Check that motion tracking is tracking.
@@ -60,7 +65,13 @@ namespace GoogleARCore.Examples.Common
                 // coordinates.
                 GameObject planeObject = Instantiate(DetectedPlanePrefab, Vector3.zero, Quaternion.identity, transform);
                 planeObject.GetComponent<DetectedPlaneVisualizer>().Initialize(m_NewPlanes[i]);
+                planeObject.GetComponent<DetectedPlaneVisualizer>().enabled = drawPlanes;
+                planeObject.GetComponent<Renderer>().enabled = drawPlanes;
             }
+        }
+
+        public void disablePlane(){
+            drawPlanes = false;
         }
     }
 }
