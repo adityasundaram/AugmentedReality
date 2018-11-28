@@ -6,17 +6,30 @@ public class manager : MonoBehaviour
 {
     public GameObject title;
     public GameObject tag;
+    public GameObject start;
+    public GameObject intro;
+    public GameObject story;
+    public GameObject load;
     private Animator titleAnim;
     private Animator tagAnim;
-    private bool slideDown;
+    private SceneState state;
     // Use this for initialization
+    enum SceneState
+    {
+        INTRO,
+        STORY,
+        LOAD_SC,
+        LOAD
+    }; 
+
     void Start()
     {
         titleAnim = title.GetComponent<Animator>();
         tagAnim = tag.GetComponent<Animator>();
         titleAnim.SetBool("isHidden", false);
         tagAnim.SetBool("isHidden", false);
-        slideDown = true;
+        state = SceneState.INTRO;
+        start.GetComponent<Animator>().SetBool("active", false);
     }
 
     // Update is called once per frame
@@ -34,7 +47,36 @@ public class manager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(1);
+            if (state == SceneState.INTRO)
+            {
+                titleAnim.SetBool("isHidden", true);
+                tagAnim.SetBool("isHidden", true);
+                start.GetComponent<Animator>().SetBool("active", true);
+                start.SetActive(false);
+                intro.GetComponent<Animator>().SetBool("active", true);
+                state = SceneState.STORY;
+
+            } 
+            else if (state == SceneState.STORY)
+            {
+                intro.GetComponent<Animator>().SetBool("active", false);
+                story.GetComponent<Animator>().SetBool("active", true);
+                state = SceneState.LOAD_SC;
+            }
+            else if(state == SceneState.LOAD_SC)
+            {
+                story.GetComponent<Animator>().SetBool("active", false);
+                load.GetComponent<Animator>().SetBool("active", true);
+                state = SceneState.LOAD;
+            }
+            else if (state == SceneState.LOAD)
+            {
+                load.GetComponent<Animator>().SetBool("active", false);
+
+                //System.Threading.Thread.Sleep(3000);
+                SceneManager.LoadScene(1);
+            }
+
         }
     }
 }
