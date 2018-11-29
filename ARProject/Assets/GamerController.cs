@@ -230,6 +230,11 @@ public class GamerController : MonoBehaviour {
     {
         return currentPlayerObject;
     }
+
+    public List<CharacterObject> GetAllCharacterObjects()
+    {
+        return characterObjects;
+    }
     
     public CharacterObject GetCharacterProperties(int index){
         return characterObjects[index];

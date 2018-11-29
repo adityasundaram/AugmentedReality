@@ -33,6 +33,7 @@
           </e>
         </e>
         <e p="colliderScript.cs" t="Include" />
+        <e p="flashingmanager.cs" t="Include" />
         <e p="GamerController.cs" t="Include" />
         <e p="Globals.cs" t="Include" />
         <e p="GoogleARCore" t="Include">
@@ -256,6 +257,7 @@
         </e>
         <e p="GunScript.cs" t="Include" />
         <e p="Log.cs" t="Include" />
+        <e p="manager.cs" t="Include" />
         <e p="SampleScenes" t="Include">
           <e p="Menu" t="Include">
             <e p="Scripts" t="Include">
