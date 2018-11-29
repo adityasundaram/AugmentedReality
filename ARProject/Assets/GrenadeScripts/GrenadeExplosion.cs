@@ -28,6 +28,7 @@ public class GrenadeExplosion: MonoBehaviour {
 			float distance = Vector3.Distance(collisionPosition, characterPosition);
 			if (distance < impactDistance)
 			{
+				characterObjects[i].charActions.Damage();
 				int health = (int) ((1 - (distance / impactDistance)) * 20);
 				gamerController.UpdateHealth(characterObjects[i],-health);
 			}

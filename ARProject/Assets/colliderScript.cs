@@ -18,13 +18,8 @@ public class colliderScript : MonoBehaviour {
         GamerController mainGameController = GetGameController();
         CharacterObject currentPlayer = mainGameController.GetCurrentCharacterProperties();
 
-        if (col.name=="FlareMobile1" || col.name=="FlareMobile2"){
-
+        if (col.name.StartsWith("FlareMobile")){
             currentPlayer.WeaponAllowed = true;
-            Destroy(col.gameObject);
-
-        }else if (col.name=="FlareMobile3"){
-
             mainGameController.UpdateHealth(currentPlayer, 20f);
             Destroy(col.gameObject);
         }

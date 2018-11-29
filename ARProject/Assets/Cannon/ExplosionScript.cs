@@ -31,6 +31,7 @@ public class ExplosionScript : MonoBehaviour
             //Debug.Log("Distance "+ i +"position : "+distance);
             if (distance < impactDistance)
             {
+                characterObjects[i].charActions.Damage();
                 int health = (int) ((1 - (distance / impactDistance)) * 40);
                 //Debug.Log("Health " + health);
                 gamerController.UpdateHealth(characterObjects[i],-health);
