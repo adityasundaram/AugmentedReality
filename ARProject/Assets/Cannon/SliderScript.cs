@@ -11,7 +11,6 @@ public class SliderScript : MonoBehaviour {
             //change cannon angle
             GameObject cannon = GameObject.Find("Cannon" + Cannons.cannonSelected);
 
-            Debug.Log(cannon);
             cannon.transform.localEulerAngles = new Vector3(360.0f - (45 * val), cannon.transform.localEulerAngles.y, cannon.transform.localEulerAngles.z);
 
             //change projectile path angle

@@ -49,7 +49,7 @@ public class GamerController : MonoBehaviour {
 
     private Dictionary<string, GameObject> characterHealthIndex;
 
-    private float speed = 0.4f;
+    private float speed = 0.40f;
 
     private List<GameObject> markdown;
 
@@ -61,7 +61,7 @@ public class GamerController : MonoBehaviour {
 
         switch(prefabName){
             case "CyborgGirl(Clone)":
-                weaponList = new List<string> { "Empty", "Grenade", "YM-3 Pistols", "Two Pistols", "YM-27 Rifle" };
+                weaponList = new List<string> { "Empty", "Grenade", "Two Pistols", "YM-27 Rifle" };
                 break;
             case "SciFiEngineer(Clone)":
                 weaponList = new List<string> { "Empty", "One Pistol", "Two Pistols" };
@@ -144,7 +144,7 @@ public class GamerController : MonoBehaviour {
                 if (h != 0 || v != 0)
                 {
                     UpdateEnergy(0.05f);
-                    currentPlayerObject.charActions.Walk();
+                    currentPlayerObject.charActions.Run();
                     Vector3 target = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
                     target = firstPersonCamera.transform.TransformDirection(target);
                     target.y = 0;
@@ -259,7 +259,7 @@ public class GamerController : MonoBehaviour {
         if (current_health > 0)
         {
             current_health += health;
-            if (current_health < 0)
+            if (current_health <= 0)
             {
                 player.charActions.Death();
                 current_health = 0;
@@ -320,7 +320,7 @@ public class GamerController : MonoBehaviour {
             GameObject character2 = Instantiate(char2Prefab, loc2, Quaternion.identity, transform);
 
 
-            Vector3 newPos = new Vector3(firstPersonCamera.transform.position.x, spos.y, firstPersonCamera.transform.position.z);
+            Vector3 newPos = new Vector3(firstPersonCamera.transform.position.x, pos.y, firstPersonCamera.transform.position.z);
 
 
             // Adding two players 

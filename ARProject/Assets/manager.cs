@@ -10,6 +10,7 @@ public class manager : MonoBehaviour
     public GameObject intro;
     public GameObject story;
     public GameObject load;
+    public AudioSource menuSound;
     private Animator titleAnim;
     private Animator tagAnim;
     private SceneState state;

@@ -22,7 +22,7 @@ public class Log : MonoBehaviour
 
     void HandleLog(string logString, string stackTrace, LogType type)
     {
-        myLog = logString;
+        /*myLog = logString;
         string newString = "\n [" + type + "] : " + myLog;
         myLogQueue.Enqueue(newString);
         if (type == LogType.Exception)
@@ -34,11 +34,11 @@ public class Log : MonoBehaviour
         foreach (string mylog in myLogQueue)
         {
             myLog += mylog;
-        }
+        }*/
     }
 
     void OnGUI()
     {
-        GUILayout.Label(myLog);
+        //GUILayout.Label(myLog);
     }
 }
