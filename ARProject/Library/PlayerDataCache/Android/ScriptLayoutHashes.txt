@@ -330,7 +330,7 @@ d6847627ba7741c18a9d5258fc293648 Assembly-CSharp.dll:TMPro.Examples.VertexShakeA
 dd223b2cbb523615eee8980d99d61ddd Assembly-CSharp.dll:.EnvMapAnimator
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 21c4b5fc530a74fa6b732eb8cd86a1ef Assembly-CSharp.dll:.LaunchArcScript
-ed436c6aac228927d94341af5cad8ba5 Assembly-CSharp.dll:.GamerController
+dbc3205a0063e7c61d76eb04062d1648 Assembly-CSharp.dll:.GamerController
 36ed8d92a07a53bf383bc90e377cc388 Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 695c9335429d4798b6f74ca73c042ff4 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
 182e416670915c50a548c38c642db0d8 Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour

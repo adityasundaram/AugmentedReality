@@ -43,6 +43,9 @@ public class GamerController : MonoBehaviour {
     // Char energy value - for switching
     private float charEnergyValue;
 
+    // Used to say GAME OVER
+    public Canvas gameOverCanvas;
+
 
     private Dictionary<string, GameObject> characterHealthIndex;
 
@@ -110,6 +113,7 @@ public class GamerController : MonoBehaviour {
         characterHealthIndex.Add("Player_2",char2health);
 
         popupCanvas.enabled = false;
+        gameOverCanvas.enabled = false;
         
         markdown = new List<GameObject>();
         
@@ -259,6 +263,8 @@ public class GamerController : MonoBehaviour {
             {
                 player.charActions.Death();
                 current_health = 0;
+                popupCanvas.enabled = false;
+                gameOverCanvas.enabled = true;
             }else if(current_health > 100f){
                 current_health = 100f;
             }
